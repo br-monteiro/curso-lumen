@@ -11,6 +11,7 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
+$app->get('/', [
+    'as' => 'agenda.index',
+    'uses' => 'IndexController@indexAction'
+]);

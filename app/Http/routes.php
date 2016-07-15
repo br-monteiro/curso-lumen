@@ -15,3 +15,13 @@ $app->get('/', [
     'as' => 'agenda.index',
     'uses' => 'IndexController@indexAction'
 ]);
+
+$app->get('/pessoas', [
+    'as' => 'agenda.pessoas',
+    'uses' => 'IndexController@pessoasAction'
+]);
+
+$app->get('/pessoas/{letra}', [
+    'as' => 'agenda.letra',
+    'uses' => 'IndexController@pessoasAction'
+]);

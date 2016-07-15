@@ -6,7 +6,12 @@
     </head>
 
     <body>
-        <h3>Teste de view {{$teste}}</h3>
+        <h3>Teste de view</h3>
+        <ul>
+        @foreach (range('A', 'Z') as $letra)
+        <li>{{ $letra }}</li>
+        @endforeach
+        </ul>
     </body>
 </html>
 

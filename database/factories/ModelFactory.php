@@ -11,9 +11,28 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+//$factory->define(App\User::class, function (Faker\Generator $faker) {
+//    return [
+//        'name' => $faker->name,
+//        'email' => $faker->email,
+//    ];
+//});
+
+$factory->define(\App\Entities\Pessoa::class, function($faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'nome' => $faker->name,
+        'apelido' => $faker->firstname,
+        'sexo' => $faker->randomElement(['M','F'])
+    ];
+});
+
+$factory->define(\App\Entities\Telefones::class, function($faker) {
+    return [
+        'descricao' => $faker->randomElement(['Comercial', 'Celular', 'Residencial', 'Recados']),
+        'cod_pais' => $faker->optional(0.7, 55)->numberBetween(1, 197),
+        'ddd' => $faker->numberBetween(11, 91),
+        'prefixo' => $faker->randomNumber(4),
+        'sufixo' => $faker->randomNumber(4),
+        'pessoa_id' => $faker->numberBetween(1, 30)
     ];
 });
